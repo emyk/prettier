@@ -741,7 +741,7 @@ class Bar extends React.Component {
     test: number
   };
   render() {
-    return <div>{this.props.test}</div>;
+    return <div>{ this.props.test }</div>;
   }
 }
 
@@ -796,7 +796,7 @@ var Foo = React.createClass({
 });
 
 var props = { bar: 42 };
-var blah = <Foo {...props} />; // error bar, number given string expected
+var blah = <Foo { ...props } />; // error bar, number given string expected
 
 `;
 
@@ -830,7 +830,7 @@ var AnyExample = React.createClass({
 });
 
 <AnyExample />; // OK
-<AnyExample foo={(0: mixed)} />; // OK
+<AnyExample foo={ (0: mixed) } />; // OK
 
 var AnyFunExample = React.createClass({
   propTypes: {
@@ -839,7 +839,7 @@ var AnyFunExample = React.createClass({
 });
 
 <AnyFunExample />; // OK
-<AnyFunExample foo={(0: mixed)} />; // OK
+<AnyFunExample foo={ (0: mixed) } />; // OK
 
 `;
 
@@ -899,17 +899,17 @@ var Example = React.createClass({
   }
 });
 
-var ok_empty = <Example arr={[]} />;
-var ok_numbers = <Example arr={[1, 2]} />;
+var ok_empty = <Example arr={ [] } />;
+var ok_numbers = <Example arr={ [1, 2] } />;
 
 var fail_missing = <Example />;
-var fail_not_array = <Example arr={2} />;
-var fail_mistyped_elems = <Example arr={[1, "foo"]} />;
+var fail_not_array = <Example arr={ 2 } />;
+var fail_mistyped_elems = <Example arr={ [1, "foo"] } />;
 
 /* Since the \`number\` proptype argument is not required, React will actually
    allow \`null\` and \`undefined\` elements in the \`arr\` prop, but Flow has
    currently ignores the innter prop type's required flag. */
-var todo_required = <Example arr={[null]} />;
+var todo_required = <Example arr={ [null] } />;
 
 var OptionalExample = React.createClass({
   propTypes: {
@@ -918,8 +918,8 @@ var OptionalExample = React.createClass({
 });
 
 <OptionalExample />; // OK
-<OptionalExample arr={[0]} />; // OK
-<OptionalExample arr={[""]} />; // error: string ~> number
+<OptionalExample arr={ [0] } />; // OK
+<OptionalExample arr={ [""] } />; // error: string ~> number
 
 var AnyExample = React.createClass({
   propTypes: {
@@ -927,8 +927,8 @@ var AnyExample = React.createClass({
   }
 });
 
-<AnyExample arr={0} />; // error: still needs to be an array
-<AnyExample arr={[0]} />; // OK
+<AnyExample arr={ 0 } />; // error: still needs to be an array
+<AnyExample arr={ [0] } />; // OK
 
 var InvalidExample = React.createClass({
   propTypes: {
@@ -975,7 +975,7 @@ var Example = React.createClass({
 
 // Inferred prop type is optional \`any\`
 <Example />;
-<Example foo={(0: mixed)} />;
+<Example foo={ (0: mixed) } />;
 
 `;
 
@@ -1004,11 +1004,11 @@ var Example = React.createClass({
   }
 });
 
-var ok_void = <Example func={() => {}} />;
-var ok_args = <Example func={x => {}} />;
-var ok_retval = <Example func={() => 1} />;
+var ok_void = <Example func={ () => {} } />;
+var ok_args = <Example func={ x => {} } />;
+var ok_retval = <Example func={ () => 1 } />;
 
-var fail_mistyped = <Example func={2} />;
+var fail_mistyped = <Example func={ 2 } />;
 
 `;
 
@@ -1033,7 +1033,7 @@ var Example = React.createClass({
 });
 
 <Example />; // OK: don't cascade errors
-<Example foo={(0: mixed)} />; // OK: don't cascade errors
+<Example foo={ (0: mixed) } />; // OK: don't cascade errors
 
 `;
 
@@ -1093,9 +1093,9 @@ var Example = React.createClass({
   }
 });
 
-<Example x={new A()} />; // error: A ~> B
-<Example x={new B()} />; // OK
-<Example x={new C()} />; // OK (C ~> B)
+<Example x={ new A() } />; // error: A ~> B
+<Example x={ new B() } />; // OK
+<Example x={ new C() } />; // OK (C ~> B)
 <Example x="wrong" />; // error: string ~> B
 
 class Poly<T> {
@@ -1111,8 +1111,8 @@ var PolyExample = React.createClass({
 });
 
 // Different instantiations don't interact
-<PolyExample x={(new Poly(): Poly<string>)} />; // OK
-<PolyExample x={(new Poly(): Poly<number>)} />; // OK
+<PolyExample x={ (new Poly(): Poly<string>) } />; // OK
+<PolyExample x={ (new Poly(): Poly<number>) } />; // OK
 
 class PolyDefault<T = string> {
   x: T;
@@ -1191,7 +1191,7 @@ var Foo = React.createClass({
 
   render() {
     // But this never errored
-    return <div id={this.props.name} />;
+    return <div id={ this.props.name } />;
   }
 });
 
@@ -1221,10 +1221,10 @@ var Example = React.createClass({
   }
 });
 
-var ok_empty = <Example object={{}} />;
-var ok_props = <Example object={{ foo: "bar" }} />;
+var ok_empty = <Example object={ {} } />;
+var ok_props = <Example object={ { foo: "bar" } } />;
 
-var fail_mistyped = <Example object={2} />;
+var fail_mistyped = <Example object={ 2 } />;
 
 `;
 
@@ -1284,17 +1284,17 @@ var Example = React.createClass({
   }
 });
 
-var ok_empty = <Example obj={{}} />;
-var ok_numbers = <Example obj={{ foo: 1, bar: 2 }} />;
+var ok_empty = <Example obj={ {} } />;
+var ok_numbers = <Example obj={ { foo: 1, bar: 2 } } />;
 
 var fail_missing = <Example />;
-var fail_not_object = <Example obj={2} />;
-var fail_mistyped_props = <Example obj={{ foo: "foo" }} />;
+var fail_not_object = <Example obj={ 2 } />;
+var fail_mistyped_props = <Example obj={ { foo: "foo" } } />;
 
 /* Since the \`number\` proptype argument is not required, React will actually
    allow \`null\` and \`undefined\` elements in the \`obj\` prop, but Flow has
    currently ignores the innter prop type's required flag. */
-var todo_required = <Example obj={{ p: null }} />;
+var todo_required = <Example obj={ { p: null } } />;
 
 var OptionalExample = React.createClass({
   propTypes: {
@@ -1303,8 +1303,8 @@ var OptionalExample = React.createClass({
 });
 
 <OptionalExample />; // OK
-<OptionalExample obj={{ p: 0 }} />; // OK
-<OptionalExample obj={{ p: "" }} />; // error: string ~> number
+<OptionalExample obj={ { p: 0 } } />; // OK
+<OptionalExample obj={ { p: "" } } />; // error: string ~> number
 
 var AnyExample = React.createClass({
   propTypes: {
@@ -1312,8 +1312,8 @@ var AnyExample = React.createClass({
   }
 });
 
-<AnyExample obj={0} />; // error: still needs to be an object
-<AnyExample obj={{ p: 0 }} />; // OK
+<AnyExample obj={ 0 } />; // error: still needs to be an object
+<AnyExample obj={ { p: 0 } } />; // OK
 
 var InvalidExample = React.createClass({
   propTypes: {
@@ -1427,15 +1427,15 @@ var Example = React.createClass({
 <Example str="foo" />; // OK
 <Example str="baz" />; // error: 'baz' not in enum
 
-<Example num={0} />; // OK
-<Example num={3} />; // error: 3 not in enum
+<Example num={ 0 } />; // OK
+<Example num={ 3 } />; // error: 3 not in enum
 
-<Example bool={true} />; // OK
-<Example bool={false} />; // error: false ~> true
+<Example bool={ true } />; // OK
+<Example bool={ false } />; // error: false ~> true
 
-<Example mixed={"foo"} />; // OK
-<Example mixed={0} />; // OK
-<Example mixed={"baz"} />; // error: 'baz' not in enum
+<Example mixed={ "foo" } />; // OK
+<Example mixed={ 0 } />; // OK
+<Example mixed={ "baz" } />; // error: 'baz' not in enum
 
 var RequiredExample = React.createClass({
   propTypes: {
@@ -1451,7 +1451,7 @@ var EmptyExample = React.createClass({
   }
 });
 
-<EmptyExample nil={0} />; // number ~> empty
+<EmptyExample nil={ 0 } />; // number ~> empty
 
 var AnyArrayExample = React.createClass({
   propTypes: {
@@ -1459,7 +1459,7 @@ var AnyArrayExample = React.createClass({
   }
 });
 
-<AnyArrayExample any={0} />; // OK
+<AnyArrayExample any={ 0 } />; // OK
 
 var AnyElemExample = React.createClass({
   propTypes: {
@@ -1467,7 +1467,7 @@ var AnyElemExample = React.createClass({
   }
 });
 
-<AnyElemExample any={0} />; // OK
+<AnyElemExample any={ 0 } />; // OK
 
 var DynamicArrayExample = React.createClass({
   propTypes: {
@@ -1475,7 +1475,7 @@ var DynamicArrayExample = React.createClass({
   }
 });
 
-<DynamicArrayExample dyn={0} />; // OK
+<DynamicArrayExample dyn={ 0 } />; // OK
 
 var DynamicElemExample = React.createClass({
   propTypes: {
@@ -1483,7 +1483,7 @@ var DynamicElemExample = React.createClass({
   }
 });
 
-<DynamicElemExample dyn={0} />; // OK
+<DynamicElemExample dyn={ 0 } />; // OK
 
 var InvalidArrayExample = React.createClass({
   propTypes: {
@@ -1491,14 +1491,14 @@ var InvalidArrayExample = React.createClass({
   }
 });
 
-<InvalidArrayExample p={0} />; // OK, don't cascade errors
+<InvalidArrayExample p={ 0 } />; // OK, don't cascade errors
 
 var NonLiteralElemExample = React.createClass({
   propTypes: {
     p: React.PropTypes.oneOf([{}]) // OK: allow non-literals
   }
 });
-<NonLiteralElemExample p={0} />; // OK, result is unknown/any
+<NonLiteralElemExample p={ 0 } />; // OK, result is unknown/any
 
 `;
 
@@ -1619,23 +1619,23 @@ var Example = React.createClass({
   },
   render() {
     if (typeof this.props.prop === "string") {
-      return <div>{this.props.prop}</div>;
+      return <div>{ this.props.prop }</div>;
     } else {
-      return <div>{this.props.prop.toFixed(2)}</div>;
+      return <div>{ this.props.prop.toFixed(2) }</div>;
     }
   }
 });
 
-var ok_number = <Example prop={42} />;
+var ok_number = <Example prop={ 42 } />;
 var ok_string = <Example prop="bar" />;
 
 var fail_missing = <Example />;
-var fail_bool = <Example prop={true} />;
+var fail_bool = <Example prop={ true } />;
 
 /* Since the proptype arguments are not required, React will actually allow
    \`null\` and \`undefined\` elements in the \`prop\` prop, but Flow has currently
    ignores the innter prop types' required flags. */
-var todo_required = <Example prop={null} />;
+var todo_required = <Example prop={ null } />;
 
 var OptionalExample = React.createClass({
   propTypes: {
@@ -1645,7 +1645,7 @@ var OptionalExample = React.createClass({
 
 <OptionalExample />; // OK
 <OptionalExample p="" />; // OK
-<OptionalExample p={0} />; // error: number ~> string
+<OptionalExample p={ 0 } />; // error: number ~> string
 
 var EmptyExample = React.createClass({
   propTypes: {
@@ -1653,7 +1653,7 @@ var EmptyExample = React.createClass({
   }
 });
 
-<EmptyExample nil={0} />; // number ~> empty
+<EmptyExample nil={ 0 } />; // number ~> empty
 
 var AnyArrayExample = React.createClass({
   propTypes: {
@@ -1661,7 +1661,7 @@ var AnyArrayExample = React.createClass({
   }
 });
 
-<AnyArrayExample any={0} />; // OK
+<AnyArrayExample any={ 0 } />; // OK
 
 var AnyElemExample = React.createClass({
   propTypes: {
@@ -1669,7 +1669,7 @@ var AnyElemExample = React.createClass({
   }
 });
 
-<AnyElemExample any={0} />; // OK
+<AnyElemExample any={ 0 } />; // OK
 
 var DynamicArrayExample = React.createClass({
   propTypes: {
@@ -1677,7 +1677,7 @@ var DynamicArrayExample = React.createClass({
   }
 });
 
-<DynamicArrayExample dyn={0} />; // OK
+<DynamicArrayExample dyn={ 0 } />; // OK
 
 var DynamicElemExample = React.createClass({
   propTypes: {
@@ -1688,7 +1688,7 @@ var DynamicElemExample = React.createClass({
   }
 });
 
-<DynamicElemExample dyn={0} />; // OK
+<DynamicElemExample dyn={ 0 } />; // OK
 
 var InvalidArrayExample = React.createClass({
   propTypes: {
@@ -1696,7 +1696,7 @@ var InvalidArrayExample = React.createClass({
   }
 });
 
-<InvalidArrayExample p={0} />; // OK, don't cascade errors
+<InvalidArrayExample p={ 0 } />; // OK, don't cascade errors
 
 var InvalidElemExample = React.createClass({
   propTypes: {
@@ -1704,7 +1704,7 @@ var InvalidElemExample = React.createClass({
   }
 });
 
-<InvalidElemExample p={0} />; // OK, don't cascade errors
+<InvalidElemExample p={ 0 } />; // OK, don't cascade errors
 
 `;
 

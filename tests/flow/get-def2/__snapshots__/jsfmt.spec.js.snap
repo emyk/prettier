@@ -118,9 +118,9 @@ class C extends React.Component {
 
 let msg = "hello";
 
-<C x={msg} />;
+<C x={ msg } />;
 
-<div id={msg} />;
+<div id={ msg } />;
 
 `;
 

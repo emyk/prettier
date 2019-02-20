@@ -76,25 +76,25 @@ const renderTernary = (props) =>
   </BaseForm>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const render1 = ({ styles }) => (
-  <div style={styles} key="something">
+  <div style={ styles } key="something">
     Keep the wrapping parens. Put each key on its own line.
   </div>
 );
 
 const render2 = ({ styles }) => (
-  <div style={styles} key="something">
+  <div style={ styles } key="something">
     Create wrapping parens.
   </div>
 );
 
 const render3 = ({ styles }) => (
-  <div style={styles} key="something">
+  <div style={ styles } key="something">
     Create wrapping parens.
   </div>
 );
 
 const render4 = ({ styles }) => (
-  <div style={styles} key="something">
+  <div style={ styles } key="something">
     Create wrapping parens and indent <strong>all the things</strong>.
   </div>
 );
@@ -169,13 +169,13 @@ const render7B = () => (
   </div>
 );
 
-const render8 = props => <div>{props.text}</div>;
+const render8 = props => <div>{ props.text }</div>;
 const render9 = props => (
-  <div>{props.looooooooooooooooooooooooooooooong_text}</div>
+  <div>{ props.looooooooooooooooooooooooooooooong_text }</div>
 );
 const render10 = props => (
   <div>
-    {props.even_looooooooooooooooooooooooooooooooooooooooooonger_contents}
+    { props.even_looooooooooooooooooooooooooooooooooooooooooonger_contents }
   </div>
 );
 
@@ -204,7 +204,7 @@ const renderTernary = props => (
     size="large"
     submitLabel="Sign in with Google"
   >
-    {props.showTheThing ? (
+    { props.showTheThing ? (
       <BaseForm
         url="/auth/google"
         method="GET"
@@ -216,8 +216,8 @@ const renderTernary = props => (
       </BaseForm>
     ) : (
       "hello " + "howdy! "
-    )}
-    {props.showTheThing ? (
+    ) }
+    { props.showTheThing ? (
       <BaseForm
         url="/auth/google"
         method="GET"
@@ -227,8 +227,8 @@ const renderTernary = props => (
       >
         Hello world
       </BaseForm>
-    ) : null}
-    {props.showTheThing ? null : (
+    ) : null }
+    { props.showTheThing ? null : (
       <BaseForm
         url="/auth/google"
         method="GET"
@@ -238,9 +238,9 @@ const renderTernary = props => (
       >
         Hello world
       </BaseForm>
-    )}
-    {props.showTheOtherThing ? <div>I am here</div> : <div attr="blah" />}
-    {props.showTheOtherThing ? <div>I am here!!</div> : null}
+    ) }
+    { props.showTheOtherThing ? <div>I am here</div> : <div attr="blah" /> }
+    { props.showTheOtherThing ? <div>I am here!!</div> : null }
   </BaseForm>
 );
 

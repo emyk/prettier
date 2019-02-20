@@ -46,7 +46,7 @@ export default {
     }
   },
   render(h): VNode {
-    return <div>{this.foo}</div>;
+    return <div>{ this.foo }</div>;
   }
 };
 </script>

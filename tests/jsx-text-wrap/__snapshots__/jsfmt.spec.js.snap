@@ -374,16 +374,18 @@ x = (
 
 x = (
   <div>
-    before{stuff}after{stuff}after{stuff}after{stuff}after{stuff}after{stuff}
-    {stuff}
-    {stuff}after{stuff}after
+    before{ stuff }after{ stuff }after{ stuff }after{ stuff }after{ stuff }after{
+      stuff
+     }
+    { stuff }
+    { stuff }after{ stuff }after
   </div>
 );
 
 x = (
   <div>
-    before {stuff} after {stuff} after {stuff} after {stuff} after {stuff} after{" "}
-    {stuff} {stuff} {stuff} after {stuff} after
+    before { stuff } after { stuff } after { stuff } after { stuff } after{" "}
+    { stuff } after { stuff } { stuff } { stuff } after { stuff } after
   </div>
 );
 
@@ -401,24 +403,25 @@ function DiffOverview(props) {
       <div className="alert alert-info">
         <p>
           This diff overview is computed against the current list of records in
-          this collection and the list it contained on <b>{humanDate(since)}</b>.
+          this collection and the list it contained on{" "}
+          <b>{ humanDate(since) }</b>.
         </p>
         <p>
           <b>Note:</b> <code>last_modified</code> and <code>schema</code> record
           metadata are omitted for easier review.
         </p>
       </div>
-      <Diff source={source} target={target} />
+      <Diff source={ source } target={ target } />
     </div>
   );
 }
 
 x = (
-  <font size={-3}>
+  <font size={ -3 }>
     <i>
-      Starting at minute {graphActivity.startTime}, running for{" "}
-      {graphActivity.length} to minute{" "}
-      {graphActivity.startTime + graphActivity.length}
+      Starting at minute { graphActivity.startTime }, running for{" "}
+      { graphActivity.length } to minute{" "}
+      { graphActivity.startTime + graphActivity.length }
     </i>
   </font>
 );
@@ -476,29 +479,29 @@ facebook_translation_leave_text_around_tag = (
 
 this_really_should_split_across_lines = (
   <div>
-    before{stuff}after{stuff}after{stuff}after{stuff}after{stuff}after{stuff}after{
+    before{ stuff }after{ stuff }after{ stuff }after{ stuff }after{ stuff }after{
       stuff
-    }after{stuff}after{stuff}after{stuff}after{stuff}after{stuff}after{stuff}after{
+     }after{ stuff }after{ stuff }after{ stuff }after{ stuff }after{ stuff }after{
       stuff
-    }after
+     }after{ stuff }after{ stuff }after
   </div>
 );
 
 unstable_before = (
   <div className="yourScore">
     Your score:{" "}
-    <span className="score">{\`\${mini.crosstable.users[sessionUserId]} - \${
+    <span className="score">{ \`\${mini.crosstable.users[sessionUserId]} - \${
       mini.crosstable.users[user.id]
-    }\`}</span>
+    }\` }</span>
   </div>
 );
 
 unstable_after_first_run = (
   <div className="yourScore">
     Your score:{" "}
-    <span className="score">{\`\${mini.crosstable.users[sessionUserId]} - \${
+    <span className="score">{ \`\${mini.crosstable.users[sessionUserId]} - \${
       mini.crosstable.users[user.id]
-    }\`}</span>
+    }\` }</span>
   </div>
 );
 
@@ -527,7 +530,7 @@ jsx_around_multiline_element = (
     <div>
       {
         "Enough text to make this element wrap on to multiple lines when formatting"
-      }
+       }
     </div>{" "}
     After
   </div>
@@ -539,7 +542,7 @@ jsx_around_multiline_element_second_pass = (
     <div>
       {
         "Enough text to make this element wrap on to multiple lines when formatting"
-      }
+       }
     </div>{" "}
     After
   </div>
@@ -623,23 +626,23 @@ dont_preserve_blank_lines_when_jsx_contains_text = (
 
 multiple_expressions = (
   <div>
-    {header}
-    {body}
-    {footer}
+    { header }
+    { body }
+    { footer }
   </div>
 );
 
 single_expression_child_tags = (
   <div>
-    You currently have <strong>{dashboardStr}</strong> and{" "}
-    <strong>{userStr}</strong>
+    You currently have <strong>{ dashboardStr }</strong> and{" "}
+    <strong>{ userStr }</strong>
   </div>
 );
 
 expression_does_not_break = (
   <div>
     texty text text text text text text text text text text text{" "}
-    {this.props.type}{" "}
+    { this.props.type }{" "}
   </div>
 );
 
@@ -649,16 +652,16 @@ br_triggers_expression_break = (
     <br />
     text text text text text text text text text text text {
       this.props.type
-    }{" "}
+     }{" "}
   </div>
 );
 
 jsx_whitespace_after_tag = (
   <div>
     <span a="a" b="b">
-      {variable}
+      { variable }
     </span>{" "}
-    ({variable})
+    ({ variable })
   </div>
 );
 
@@ -689,9 +692,9 @@ x = (
       <div>
         <div>
           <div>
-            Line {startRange.row + 1}:{startRange.column + 1} -{" "}
-            {endRange.row + 1}:{endRange.column + 1}
-            {caller}
+            Line { startRange.row + 1 }:{ startRange.column + 1 } -{" "}
+            { endRange.row + 1 }:{ endRange.column + 1 }
+            { caller }
           </div>
         </div>
       </div>

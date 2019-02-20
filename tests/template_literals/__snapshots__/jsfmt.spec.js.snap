@@ -32,7 +32,7 @@ function SomeComponent(props) {
   // Create styles as if you're calling css and the class will be applied to the component
   return (
     <div
-      css={\`
+      css={ \`
         color: blue;
         font-size: 17 px;
 
@@ -43,7 +43,7 @@ function SomeComponent(props) {
         & .some-class {
           font-size: 20px;
         }
-      \`}
+      \` }
     >
       This will be blue until hovered.
       <div className="some-class">This font size will be 20px</div>
@@ -53,12 +53,12 @@ function SomeComponent(props) {
 
 const TestComponent = ({ children, ...props }) => (
   <div
-    css={\`
+    css={ \`
       color: white;
       background: black;
-    \`}
+    \` }
   >
-    {children}
+    { children }
   </div>
 );
 
@@ -292,36 +292,36 @@ color: red; display: none
             Shouldn't be formatted.\`}</style>
 </div>;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<style jsx>{\`
+<style jsx>{ \`
   /* a comment */
   div :global(.react-select) {
     color: red;
     display: none;
   }
-\`}</style>;
+\` }</style>;
 
 <div>
-  <style jsx>{\`
+  <style jsx>{ \`
     /* a comment */
     div :global(.react-select) {
       color: red;
       display: none;
     }
-  \`}</style>
+  \` }</style>
 </div>;
 
 <div>
-  <style jsx>{\`
+  <style jsx>{ \`
     div {
       color: red;
     }
-  \`}</style>
+  \` }</style>
 </div>;
 
 <div>
-  <style jsx>{\`This is invalid css. 
+  <style jsx>{ \`This is invalid css. 
       Shouldn't fail.
-            Shouldn't be formatted.\`}</style>
+            Shouldn't be formatted.\` }</style>
 </div>;
 
 `;
@@ -369,7 +369,7 @@ exports[`styled-jsx-with-expressions.js 1`] = `
   }
 \`}</style>;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<style jsx>{\`
+<style jsx>{ \`
   div {
     display: \${expr};
     color: \${expr};
@@ -397,19 +397,19 @@ exports[`styled-jsx-with-expressions.js 1`] = `
   @font-face {
     \${expr};
   }
-\`}</style>;
+\` }</style>;
 
-<style jsx>{\`
+<style jsx>{ \`
   div {
     animation: linear \${seconds}s ease-out;
   }
-\`}</style>;
+\` }</style>;
 
-<style jsx>{\`
+<style jsx>{ \`
   div {
     animation: 3s ease-in 1s \${foo => foo.getIterations()} reverse both paused
       slidein;
   }
-\`}</style>;
+\` }</style>;
 
 `;

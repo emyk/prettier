@@ -208,13 +208,13 @@ long_string_with_extra_param = (
 
 long_obj = (
   <div
-    style={{
+    style={ {
       i: "dont",
       use: "bootstrap",
       and: "instead",
       use: "massive",
       objects
-    }}
+    } }
   >
     hello world
   </div>

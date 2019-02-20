@@ -156,7 +156,7 @@ const avatar = (hasAvatar || showPlaceholder) && <Gravatar user={author} size={s
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const user = renderedUser || (
   <div>
-    <User name={this.state.user.name} age={this.state.user.age} />
+    <User name={ this.state.user.name } age={ this.state.user.age } />
   </div>
 );
 
@@ -164,14 +164,14 @@ const user =
   renderedUser ||
   (shouldRenderUser && (
     <div>
-      <User name={this.state.user.name} age={this.state.user.age} />
+      <User name={ this.state.user.name } age={ this.state.user.age } />
     </div>
   ));
 
-const avatar = hasAvatar && <Gravatar user={author} size={size} />;
+const avatar = hasAvatar && <Gravatar user={ author } size={ size } />;
 
 const avatar = (hasAvatar || showPlaceholder) && (
-  <Gravatar user={author} size={size} />
+  <Gravatar user={ author } size={ size } />
 );
 
 `;
@@ -403,13 +403,13 @@ exports[`jsx_parent.js 1`] = `
     !isJellyfishEnabled &&
     diffUpdateMessageInput != null &&
     this.state.isUpdateMessageEmpty
-  }
+   }
 />;
 
 <div>
-  {!isJellyfishEnabled &&
+  { !isJellyfishEnabled &&
     diffUpdateMessageInput != null &&
-    this.state.isUpdateMessageEmpty}
+    this.state.isUpdateMessageEmpty }
 </div>;
 
 <div
@@ -419,24 +419,24 @@ exports[`jsx_parent.js 1`] = `
       fontSize: 14,
       color: "#fff"
     }
-  }
+   }
 />;
 
 <div>
-  {!isJellyfishEnabled &&
+  { !isJellyfishEnabled &&
     diffUpdateMessageInput != null && (
       <div>
         <span>Text</span>
       </div>
-    )}
+    ) }
 </div>;
 
 <div>
-  {(!isJellyfishEnabled && diffUpdateMessageInput != null && child) || (
+  { (!isJellyfishEnabled && diffUpdateMessageInput != null && child) || (
     <div>
       <span>Text</span>
     </div>
-  )}
+  ) }
 </div>;
 
 `;

@@ -20,24 +20,24 @@ exports[`styled-components.js 1`] = `
   \`}
 </style>;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<style jsx>{\`
+<style jsx>{ \`
   p {
     color: red;
   }
-\`}</style>;
+\` }</style>;
 
-<style jsx>{tpl\`
+<style jsx>{ tpl\`
   p {
     color: red;
   }
-\`}</style>;
+\` }</style>;
 
 <style jsx>
-  {\`
+  { \`
     p {
       color: red;
     }
-  \`}
+  \` }
 </style>;
 
 `;

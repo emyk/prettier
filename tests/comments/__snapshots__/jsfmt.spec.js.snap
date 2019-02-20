@@ -95,13 +95,13 @@ React.render( // Warm any cache
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 render(
   // Warm any cache
-  <ChildUpdates renderAnchor={true} anchorClassOn={true} />,
+  <ChildUpdates renderAnchor={ true } anchorClassOn={ true } />,
   container
 );
 
 React.render(
   // Warm any cache
-  <ChildUpdates renderAnchor={true} anchorClassOn={true} />,
+  <ChildUpdates renderAnchor={ true } anchorClassOn={ true } />,
   container
 );
 
@@ -708,7 +708,7 @@ Observable.of(process)
   .takeUntil(exit);
 
 // Comments disappear inside of JSX
-<div>{/* Some comment */}</div>;
+<div>{ /* Some comment */ }</div>;
 
 // Comments in JSX tag are placed in a non optimal way
 <div
@@ -859,39 +859,39 @@ onClick={() => {}}>
   <Component />
 </Wrapper>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<div>{/* comment */}</div>;
+<div>{ /* comment */ }</div>;
 
-<div>{/* comment */}</div>;
+<div>{ /* comment */ }</div>;
 
-<div>{/* comment
-*/}</div>;
+<div>{ /* comment
+*/ }</div>;
 
-<div>{a /* comment
-*/}</div>;
+<div>{ a /* comment
+*/ }</div>;
 
 <div>
   {
     /* comment
 */
     a
-  }
+   }
 </div>;
 
-<div>{/* comment */}</div>;
+<div>{ /* comment */ }</div>;
 
-<div>{/* comment */}</div>;
+<div>{ /* comment */ }</div>;
 
 <div>
   {
     // single line comment
-  }
+   }
 </div>;
 
 <div>
   {
     // multiple line comments 1
     // multiple line comments 2
-  }
+   }
 </div>;
 
 <div>
@@ -900,65 +900,65 @@ onClick={() => {}}>
     /* multiple mixed comments 2 */
     /* multiple mixed comments 3 */
     // multiple mixed comments 4
-  }
+   }
 </div>;
 
 <div>
   {
     // Some very v  ery very very merry (xmas) very very long line to break line width limit
-  }
+   }
 </div>;
 
 <div>
-  {/*<div>  Some very v  ery very very long line to break line width limit </div>*/}
+  { /*<div>  Some very v  ery very very long line to break line width limit </div>*/ }
 </div>;
 
 <div>
-  {/**
+  { /**
    * JSDoc-y comment in JSX. I wonder what will happen to it?
-   */}
+   */ }
 </div>;
 
 <div>
-  {/**
+  { /**
    * Another JSDoc comment in JSX.
-   */}
+   */ }
 </div>;
 
 <div
   /**
    * Handles clicks.
    */
-  onClick={() => {}}
+  onClick={ () => {} }
 />;
 
 <div
 // comment
 >
-  {foo}
+  { foo }
 </div>;
 
 <div
   className="foo" // comment
 >
-  {foo}
+  { foo }
 </div>;
 
 <div
   className="foo"
   // comment
 >
-  {foo}
+  { foo }
 </div>;
 
 <div // comment
   id="foo"
 >
-  {children}
+  { children }
 </div>;
 
 <Wrapper>
-  {}
+  {  }
   <Component />
 </Wrapper>;
 

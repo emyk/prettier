@@ -64,9 +64,9 @@ var FeedUFI = React.createClass({
       feedback: { feedback },
       permalink: ""
     };
-    var ignored = <UFILikeCount {...props} />;
+    var ignored = <UFILikeCount { ...props } />;
     return (
-      <UFILikeCount className="" key="" feedback={feedback} permalink="" />
+      <UFILikeCount className="" key="" feedback={ feedback } permalink="" />
     );
   },
 
@@ -418,7 +418,7 @@ class HelloMessage extends React.Component {
   props: { name: string };
 }
 
-<HelloMessage name={007} />; // number ~/~> string error
+<HelloMessage name={ 007 } />; // number ~/~> string error
 <HelloMessage name="Bond" />; // ok
 
 `;
@@ -486,7 +486,7 @@ var C = React.createClass({
   }
 });
 
-var element = <C x={0} />;
+var element = <C x={ 0 } />;
 var element_ = <C />;
 
 var x: number = C.displayName;
@@ -530,7 +530,7 @@ var C = React.createClass({
   }
 });
 
-<C statistics={[{}, { label: "", value: undefined }]} />; // error (label is required, value not required)
+<C statistics={ [{}, { label: "", value: undefined }] } />; // error (label is required, value not required)
 
 var props: Array<{ label: string, value?: number }> = [
   {},
@@ -586,7 +586,7 @@ var TestProps = React.createClass({
   }
 });
 
-var element = <TestProps x={false} y={false} z={false} />; // 3 errors
+var element = <TestProps x={ false } y={ false } z={ false } />; // 3 errors
 
 (element: $jsx<*>);
 (element: $jsx<TestProps>);
@@ -630,7 +630,7 @@ var D = React.createClass({
   render: function() {
     var obj = { bar: 0 };
     var s: string = this.state.bar;
-    return <C {...this.state} foo={0} />;
+    return <C { ...this.state } foo={ 0 } />;
   }
 });
 
@@ -787,13 +787,13 @@ class JDiv extends React.Component {
 }
 
 // Should be a type error ('id' takes a string, not a number..)
-<JDiv id={42} />;
+<JDiv id={ 42 } />;
 
 class Example extends React.Component {
   props: { bar: string };
 
   render() {
-    return <div>{this.props.bar}</div>;
+    return <div>{ this.props.bar }</div>;
   }
 }
 
@@ -865,7 +865,7 @@ var ReactClass = React.createClass({
   render: function(): any {
     // Any state access here seems to make state any
     this.state;
-    return <div>{this.state.bar.qux}</div>;
+    return <div>{ this.state.bar.qux }</div>;
   }
 });
 
@@ -973,7 +973,7 @@ var C = React.createClass({
 
   render() {
     this.setState({ y: 0 });
-    return <div>{this.state.z}</div>;
+    return <div>{ this.state.z }</div>;
   }
 });
 

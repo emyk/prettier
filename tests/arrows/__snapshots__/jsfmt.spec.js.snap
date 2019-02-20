@@ -279,13 +279,13 @@ function render() {
   return (
     <View>
       <Image
-        onProgress={e =>
+        onProgress={ e =>
           this.setState({
             progress: Math.round(
               100 * e.nativeEvent.loaded / e.nativeEvent.total
             )
           })
-        }
+         }
       />
     </View>
   );
@@ -295,13 +295,13 @@ function render() {
   return (
     <View>
       <Image
-        onProgress={e =>
+        onProgress={ e =>
           this.setState({
             progress: Math.round(
               100 * e.nativeEvent.loaded / e.nativeEvent.total
             )
           })
-        }
+         }
       />
     </View>
   );
@@ -311,13 +311,13 @@ function render() {
   return (
     <View>
       <Image
-        onProgress={e =>
+        onProgress={ e =>
           this.setState({
             progress: Math.round(
               100 * e.nativeEvent.loaded / e.nativeEvent.total
             )
           })
-        }
+         }
       />
     </View>
   );
@@ -452,13 +452,13 @@ function render() {
   return (
     <View>
       <Image
-        onProgress={(e) =>
+        onProgress={ (e) =>
           this.setState({
             progress: Math.round(
               100 * e.nativeEvent.loaded / e.nativeEvent.total
             )
           })
-        }
+         }
       />
     </View>
   );
@@ -468,13 +468,13 @@ function render() {
   return (
     <View>
       <Image
-        onProgress={(e) =>
+        onProgress={ (e) =>
           this.setState({
             progress: Math.round(
               100 * e.nativeEvent.loaded / e.nativeEvent.total
             )
           })
-        }
+         }
       />
     </View>
   );
@@ -484,13 +484,13 @@ function render() {
   return (
     <View>
       <Image
-        onProgress={(e) =>
+        onProgress={ (e) =>
           this.setState({
             progress: Math.round(
               100 * e.nativeEvent.loaded / e.nativeEvent.total
             )
           })
-        }
+         }
       />
     </View>
   );
@@ -569,10 +569,10 @@ export const bem = block =>
       ].join("");
 
 <FlatList
-  renderItem={(
+  renderItem={ (
     info // $FlowExpectedError - bad widgetCount type 6, should be Object
-  ) => <span>{info.item.widget.missingProp}</span>}
-  data={data}
+  ) => <span>{ info.item.widget.missingProp }</span> }
+  data={ data }
 />;
 
 `;
@@ -634,10 +634,10 @@ export const bem = (block) =>
       ].join("");
 
 <FlatList
-  renderItem={(
+  renderItem={ (
     info // $FlowExpectedError - bad widgetCount type 6, should be Object
-  ) => <span>{info.item.widget.missingProp}</span>}
-  data={data}
+  ) => <span>{ info.item.widget.missingProp }</span> }
+  data={ data }
 />;
 
 `;

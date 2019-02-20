@@ -39,30 +39,30 @@ exports[`attr-comments.js 1`] = `
     function(arg) {
       fn(arg);
     }
-  }
+   }
   propArrowFn={
     // comment
     arg => fn(arg)
-  }
+   }
   propArrowWithBreak={
     // comment
     arg =>
       fn({
         makeItBreak
       })
-  }
+   }
   propArray={
     // comment
     [el1, el2]
-  }
+   }
   propObj={
     // comment
     { key: val }
-  }
+   }
   propTemplate={
     // comment
     \`text\`
-  }
+   }
 />;
 
 `;
@@ -288,7 +288,7 @@ jsxModeFromElementBreaking ? (
 // This chain of ConditionalExpressions prints in JSX mode because the parent of
 // the outermost ConditionalExpression is a JSXExpressionContainer. It is
 // non-breaking.
-<div>{a ? "a" : b ? "b" : "c"}</div>;
+<div>{ a ? "a" : b ? "b" : "c" }</div>;
 
 // This chain of ConditionalExpressions prints in JSX mode because there is a
 // JSX element somewhere in the chain. It is non-breaking.
@@ -334,14 +334,14 @@ cable ? (
 // JSX element somewhere in the chain. It is breaking; notice the consequents
 // and alternates in the entire chain get wrapped in parens.
 <div>
-  {properties.length > 1 ||
+  { properties.length > 1 ||
   (properties.length === 1 && properties[0].apps.size > 1) ? (
     draggingApp == null || newPropertyName == null ? (
       <MigrationPropertyListItem />
     ) : (
-      <MigrationPropertyListItem apps={Immutable.List()} />
+      <MigrationPropertyListItem apps={ Immutable.List() } />
     )
-  ) : null}
+  ) : null }
 </div>;
 
 `;
@@ -470,137 +470,137 @@ exports[`expression.js 1`] = `
 </Component>;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <View
-  style={{
+  style={ {
     someVeryLongStyle1: "true",
     someVeryLongStyle2: "true",
     someVeryLongStyle3: "true",
     someVeryLongStyle4: "true"
-  }}
+  } }
 />;
 
 <View
-  style={[
+  style={ [
     {
       someVeryLongStyle1: "true",
       someVeryLongStyle2: "true",
       someVeryLongStyle3: "true",
       someVeryLongStyle4: "true"
     }
-  ]}
+  ] }
 />;
 
 <Something>
-  {() => (
+  { () => (
     <SomethingElse>
       <span />
     </SomethingElse>
-  )}
+  ) }
 </Something>;
 
 <Something>
-  {items.map(item => (
+  { items.map(item => (
     <SomethingElse>
       <span />
     </SomethingElse>
-  ))}
+  )) }
 </Something>;
 
 <Something>
-  {function() {
+  { function() {
     return (
       <SomethingElse>
         <span />
       </SomethingElse>
     );
-  }}
+  } }
 </Something>;
 
 <RadioListItem
-  key={option}
+  key={ option }
   imageSource={
     this.props.veryBigItemImageSourceFunc &&
     this.props.veryBigItemImageSourceFunc(option)
-  }
-  imageSize={this.props.veryBigItemImageSize}
+   }
+  imageSize={ this.props.veryBigItemImageSize }
   imageView={
     this.props.veryBigItemImageViewFunc &&
     this.props.veryBigItemImageViewFunc(option)
-  }
-  heading={this.props.displayTextFunc(option)}
-  value={option}
+   }
+  heading={ this.props.displayTextFunc(option) }
+  value={ option }
 />;
 
-<ParentComponent prop={<Child>test</Child>} />;
+<ParentComponent prop={ <Child>test</Child> } />;
 
 <BookingIntroPanel
   prop="long_string_make_to_force_break"
-  logClick={data => doLogClick("short", "short", data)}
+  logClick={ data => doLogClick("short", "short", data) }
 />;
 
 <BookingIntroPanel
-  logClick={data =>
+  logClick={ data =>
     doLogClick(
       "long_name_long_name_long_name",
       "long_name_long_name_long_name",
       data
     )
-  }
+   }
 />;
 
 <BookingIntroPanel
-  logClick={data => {
+  logClick={ data => {
     doLogClick(
       "long_name_long_name_long_name",
       "long_name_long_name_long_name",
       data
     );
-  }}
+  } }
 />;
 
 <Component
-  onChange={(
+  onChange={ (
     key: "possible_key_1" | "possible_key_2" | "possible_key_3",
     value: string | Immutable.List<string>
   ) => {
     this.setState({
       updatedTask: this.state.updatedTask.set(key, value)
     });
-  }}
+  } }
 />;
 
 <BookingIntroPanel>
-  {data => doLogClick("short", "short", data)}
+  { data => doLogClick("short", "short", data) }
 </BookingIntroPanel>;
 
 <BookingIntroPanel>
-  {data =>
+  { data =>
     doLogClick(
       "long_name_long_name_long_name",
       "long_name_long_name_long_name",
       data
     )
-  }
+   }
 </BookingIntroPanel>;
 
 <BookingIntroPanel>
-  {data => {
+  { data => {
     doLogClick(
       "long_name_long_name_long_name",
       "long_name_long_name_long_name",
       data
     );
-  }}
+  } }
 </BookingIntroPanel>;
 
 <Component>
-  {(
+  { (
     key: "possible_key_1" | "possible_key_2" | "possible_key_3",
     value: string | Immutable.List<string>
   ) => {
     this.setState({
       updatedTask: this.state.updatedTask.set(key, value)
     });
-  }}
+  } }
 </Component>;
 
 `;
@@ -666,40 +666,40 @@ exports[`hug.js 1`] = `
 </div>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div>
-  {__DEV__ ? (
+  { __DEV__ ? (
     this.renderDevApp()
   ) : (
     <div>
-      {routes.map(route => (
+      { routes.map(route => (
         <MatchAsync
-          key={\`\${route.to}-async\`}
-          pattern={route.to}
-          exactly={route.to === "/"}
-          getComponent={routeES6Modules[route.value]}
+          key={ \`\${route.to}-async\` }
+          pattern={ route.to }
+          exactly={ route.to === "/" }
+          getComponent={ routeES6Modules[route.value] }
         />
-      ))}
+      )) }
     </div>
-  )}
+  ) }
 </div>;
 
 <div>
-  {__DEV__ && (
+  { __DEV__ && (
     <div>
-      {routes.map(route => (
+      { routes.map(route => (
         <MatchAsync
-          key={\`\${route.to}-async\`}
-          pattern={route.to}
-          exactly={route.to === "/"}
-          getComponent={routeES6Modules[route.value]}
+          key={ \`\${route.to}-async\` }
+          pattern={ route.to }
+          exactly={ route.to === "/" }
+          getComponent={ routeES6Modules[route.value] }
         />
-      ))}
+      )) }
     </div>
-  )}
+  ) }
 </div>;
 
 <div>
-  {member.memberName.memberSomething +
-    (member.memberDef.memberSomething.signatures ? "()" : "")}
+  { member.memberName.memberSomething +
+    (member.memberDef.memberSomething.signatures ? "()" : "") }
 </div>;
 
 `;
@@ -737,39 +737,39 @@ exports[`logical-expression.js 1`] = `
   </span>}
 </div>;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<div>{a || "b"}</div>;
+<div>{ a || "b" }</div>;
 
-<div>{a && "b"}</div>;
+<div>{ a && "b" }</div>;
 
-<div>{a || <span />}</div>;
+<div>{ a || <span /> }</div>;
 
-<div>{a && <span />}</div>;
+<div>{ a && <span /> }</div>;
 
 <div>
-  {a && (
+  { a && (
     <span>
       make this text just so long enough to break this to the next line
     </span>
-  )}
+  ) }
 </div>;
 
 <div>
-  {a &&
+  { a &&
     b && (
       <span>
         make this text just so long enough to break this to the next line
       </span>
-    )}
+    ) }
 </div>;
 
 <div>
-  {a && (
+  { a && (
     <span>
       <div>
         <div />
       </div>
     </span>
-  )}
+  ) }
 </div>;
 
 `;
@@ -795,9 +795,9 @@ const tabs = [
     content: (
       <GeneralForm
         long-attribute="i-need-long-value-here"
-        onSave={onSave}
-        onCancel={onCancel}
-        countries={countries}
+        onSave={ onSave }
+        onCancel={ onCancel }
+        countries={ countries }
       />
     )
   }
@@ -817,20 +817,20 @@ onClick={() => {
 }}>{header}<showSort attr="long long long long long long long long long long long"/></td>;
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <td
-  onClick={() => {
+  onClick={ () => {
     a;
-  }}
+  } }
 >
-  {header}
-  {showSort}
+  { header }
+  { showSort }
 </td>;
 
 <td
-  onClick={() => {
+  onClick={ () => {
     a;
-  }}
+  } }
 >
-  {header}
+  { header }
   <showSort attr="long long long long long long long long long long long" />
 </td>;
 
@@ -861,7 +861,7 @@ a = [
   />
 ];
 
-<div {...(foo || foo === null ? { foo } : null)} />;
+<div { ...(foo || foo === null ? { foo } : null) } />;
 
 `;
 
@@ -872,7 +872,7 @@ exports[`quotes.js 1`] = `
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div id="&quot;'<>&amp;quot;" />;
 <div id="&quot;&#39;<>&amp;quot;" />;
-<div id={"'\\"&quot;<>&amp;quot;"} />;
+<div id={ "'\\"&quot;<>&amp;quot;" } />;
 
 `;
 

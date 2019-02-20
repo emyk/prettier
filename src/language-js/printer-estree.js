@@ -1743,6 +1743,7 @@ function printPathNoParens(path, options, print, args) {
     case "JSXSpreadChild": {
       return concat([
         "{",
+        options.bracketSpacing ? " " : "",
         path.call(p => {
           const printed = concat(["...", print(p)]);
           const n = p.getValue();
@@ -1759,6 +1760,7 @@ function printPathNoParens(path, options, print, args) {
             softline
           ]);
         }, n.type === "JSXSpreadAttribute" ? "argument" : "expression"),
+        options.bracketSpacing ? " " : "",
         "}"
       ]);
     }
@@ -1787,16 +1789,24 @@ function printPathNoParens(path, options, print, args) {
 
       if (shouldInline) {
         return group(
-          concat(["{", path.call(print, "expression"), lineSuffixBoundary, "}"])
+          concat([
+            "{",
+            options.bracketSpacing ? " " : "",
+            path.call(print, "expression"), lineSuffixBoundary,
+            options.bracketSpacing ? " " : "",
+            "}"
+          ])
         );
       }
 
       return group(
         concat([
           "{",
+          options.bracketSpacing ? " " : "",
           indent(concat([softline, path.call(print, "expression")])),
           softline,
           lineSuffixBoundary,
+          options.bracketSpacing ? " " : "",
           "}"
         ])
       );
