@@ -5,7 +5,7 @@
   "bin": {
     "prettier": "./bin/prettier.js"
   },
-  "repository": "prettier/prettier",
+  "repository": "emyk/prettier",
   "homepage": "https://prettier.io",
   "author": "James Long",
   "license": "MIT",
